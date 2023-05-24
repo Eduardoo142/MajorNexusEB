@@ -1,0 +1,237 @@
+FORMAT: 1A
+HOST: https://polls.apiblueprint.org/
+
+# API - EIAPI
+
+Esta es la documentación de EIAPI, una herramienta que servirá a todos los estudiantes de Ingeniería de Sistemas y Computación
+
+**Métodos HTTP**
+
+`POST`  :   Crear un recurso
+
+`PUT`   :   Actualizar un recurso
+
+`GET`   :   Obtener un recurso o una lista de recursos
+
+`DELETE`   :   Eliminar un recurso
+
+## Cursos [/cursos]
+
+### Añadir un curso [POST]
+
++ Request (application/json)
+
+    + Body
+    
+            {
+                "nombre_curso": "Estructuras de Datos",
+                "semestre": "3",
+                "creditos": "4";
+            }
+        
+    
++ Response 201 (application/json)
+
+    + Body
+    
+            {
+                "Message": "Curso creado exitosamente",
+                "nombre_curso": "Estructuras de Datos",
+            }
+
+### Obtener lista de cursos [GET]
+            
++ Response 200 (application/json)
+
+    + Body
+    
+            {
+                "Message": "Lista de cursos",
+                "curso":
+                [
+                    {
+                    "nombre_curso": "Fundamentos de programación",
+                    "semestre": "1",
+                    "creditos": "3",
+                    }
+            }
+            
+            
+
+### Obtener un curso [GET/cursos/nombre_curso={nombre_curso}]
++ parameters
+    + nombre_curso (required)
+    
+
++ Response 200 (application/json)
+
+    + Body
+    
+            {
+                "Message": "Curso encontrado exitosamente",
+                "Curso":
+                [
+                    {
+                        "nombre_curso": "Fundamentos de programación",
+                        "semestre": "1",
+                        "creditos": "3",
+                    }
+                ]
+            }
+      
+### Actualizar un curso [PUT/cursos/nombre_curso={nombre_curso}]
+
++ parameters
+    + nombre_curso (required)
+        
++ Request (application/json)
+
+    + Body
+    
+            {
+                "semestre": 1
+                "creditos": 3
+            }
+            
++ Response 200 (application/json)
+    
+    + Body
+    
+            {
+                "Message": "Curso actualizado correctamente",
+                "Curso":
+                [
+                    {
+                    "nombre_curso": "Fundamentos de programación",
+                    "semestre": 1
+                    "creditos": 3
+                    }
+                ]
+            }
+            
+            
+### Eliminar un curso [DELETE/cursos/nombre_curso={nombre_curso}]
+
++ parameters
+    + nombre_curso (required)
+        
++ Request (application/json)
+            
++ Response 200 (application/json)
+    
+    + Body
+    
+            {
+                "Message": "Curso eliminado correctamente"
+            }
+    
+    
+## Proyectos [/proyectos]
+
+### Añadir un proyecto [POST]
+
++ Request (application/json)
+
+    + Body
+    
+            {
+                "nombre_proyecto": "Estructuras de Datos",
+                "semestre": "3",
+                "materia": "Estructuras de Datos"
+            }
+        
+    
++ Response 201 (application/json)
+
+    + Body
+    
+            {
+                "Message": "Curso creado exitosamente",
+                "nombre_proyecto": "Estructuras de Datos",
+            }
+
+### Obtener lista de proyectos [GET]
+            
++ Response 200 (application/json)
+
+    + Body
+    
+            {
+                "Message": "Lista de proyectos",
+                "Proyecto":
+                [
+                    {
+                    "nombre_proyecto": "Fundamentos de programación",
+                    "semestre": "1",
+                    "materia": "Fundamentos de programación",
+                    }
+            }
+            
+            
+
+### Obtener un proyecto [GET/proyectos/nombre_proyecto={nombre_proyecto}]
++ parameters
+    + nombre_proyecto (required)
+    
+
++ Response 200 (application/json)
+
+    + Body
+    
+            {
+                "Message": "Proyecto encontrado exitosamente",
+                "Proyecto":
+                [
+                    {
+                        "nombre_proyecto": "Fundamentos de programación",
+                        "semestre": "1",
+                        "materia": "Fundamentos de programación",
+                    }
+                ]
+            }
+      
+### Actualizar un proyecto [PUT/proyectos/nombre_proyecto={nombre_proyecto}]
+
++ parameters
+    + nombre_proyecto (required)
+        
++ Request (application/json)
+
+    + Body
+    
+            {   
+                "semestre": "1",
+                "materia": "Fundamentos de programación",
+            }
+            
++ Response 200 (application/json)
+    
+    + Body
+    
+            {
+                "Message": "Proyecto actualizado correctamente",
+                "Proyecto":
+                [
+                    {
+                    "nombre_proyecto": "Fundamentos de programación",
+                    "semestre": "1",
+                    "materia": "Fundamentos de programación",
+                    }
+                ]
+            }
+            
+            
+### Eliminar un proyecto [DELETE/proyectos/nombre_proyecto={nombre_proyecto}]
+
++ parameters
+    + nombre_proyecto (required)
+        
++ Request (application/json)
+            
++ Response 200 (application/json)
+    
+    + Body
+    
+            {
+                "Message": "Proyecto eliminado correctamente"
+            }
